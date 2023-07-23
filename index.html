@@ -72,7 +72,7 @@
                     <div class="middle">
                         <div class="left">
                             <h3>Total daily sales</h3>
-                            <h1>$25,024</h1>
+                            <h1 id="dealsToday"></h1>
                         </div>
                         <div class="progress">
                             <svg>
@@ -90,7 +90,7 @@
                     <div class="middle">
                         <div class="left">
                             <h3>Total weekly sales</h3>
-                            <h1>$14,160</h1>
+                            <h1 id="dealsThisWeek"></h1>
                         </div>
                         <div class="progress">
                             <svg>
@@ -108,7 +108,7 @@
                     <div class="middle">
                         <div class="left">
                             <h3>Total monthly sales</h3>
-                            <h1>$10,864</h1>
+                            <h1 id="dealsThisMonth"></h1>
                         </div>
                         <div class="progress">
                             <svg>
@@ -127,49 +127,15 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Seller</th>
                             <th>Email</th>
-                            <th>daily sales</th>
-                            <th>weekly sales</th>
-                            <th>monthly sales</th>
+                            <th>Closer</th>
+                            <th>Daily sales</th>
+                            <th>Weekly sales</th>
+                            <th>Monthly sales</th>
                         </tr>
                     </thead>
                     <tbody id="data">
-                        <tr>
-                            <td>Luis Pottozen</td>
-                            <td>pottozen1611@gmail.com</td>
-                            <td>01</td>
-                            <td class="warning">02</td>
-                            <td class="primary">03</td>
-                        </tr>
-                        <tr>
-                            <td>Luis Pottozen</td>
-                            <td>pottozen1611@gmail.com</td>
-                            <td>01</td>
-                            <td class="warning">02</td>
-                            <td class="primary">03</td>
-                        </tr>
-                        <tr>
-                            <td>Luis Pottozen</td>
-                            <td>pottozen1611@gmail.com</td>
-                            <td>01</td>
-                            <td class="warning">02</td>
-                            <td class="primary">03</td>
-                        </tr>
-                        <tr>
-                            <td>Luis Pottozen</td>
-                            <td>pottozen1611@gmail.com</td>
-                            <td>01</td>
-                            <td class="warning">02</td>
-                            <td class="primary">03</td>
-                        </tr>
-                        <tr>
-                            <td>Luis Pottozen</td>
-                            <td>pottozen1611@gmail.com</td>
-                            <td>01</td>
-                            <td class="warning">02</td>
-                            <td class="primary">03</td>
-                        </tr>
+                       
                     </tbody>
                 </table>
                 <a href="#">Show All</a>
@@ -276,5 +242,10 @@
             </div>           
         </div>
     </div>
+
+
+    <script src="https://script.google.com/macros/s/AKfycbwsk78ky9oJrkAcssbyLWGrklxqwPi9oKUFcWHqW1d4KkXg2HEUpHIo0rSuUCDMBNHi/exec?action=getUsers"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>

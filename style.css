@@ -251,6 +251,7 @@ main .insights > div {
     border-radius: var(--card-border-radius);
     margin-top: 1rem;
     box-shadow: var(--box-shadow);
+    width: 250px;
     transition: all 300ms ease;
 }
 
