@@ -24,7 +24,7 @@
 
     --box-shadow: 0 2rem 3rem var(--color-light);
 }
-
+ 
 .dark-theme-variables {
     --color-background: #181a1e;
     --color-white: #202528;
@@ -369,7 +369,7 @@ main .recent-orders table:hover{
     display: flex;
     justify-content: stretch;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
 
 main table tbody td {
