@@ -365,6 +365,13 @@ main .recent-orders table:hover{
     box-shadow: none;
 }
 
+.controls {
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
 main table tbody td {
     height: 2.8rem;
     border-bottom: 1px solid var(--color-light);
@@ -381,6 +388,27 @@ main .recent-orders a{
     margin: 1rem auto;
     color: var(--color-primary);
 }
+
+.pagination {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.pagination button {
+    padding: 5px 10px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-1);
+    cursor: pointer;
+  }
+  
+ #currentPage {
+    margin: 0 10px;
+    font-weight: bold;
+  } 
 
 .right {
     margin-top: 1.4rem;

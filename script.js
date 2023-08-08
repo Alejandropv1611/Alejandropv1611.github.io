@@ -38,9 +38,6 @@ const mostrarData = (data) => {
     }
   }
 
-
-
-
   document.getElementById("dealsToday").innerHTML = dealsToday;
   document.getElementById("dealsThisWeek").innerHTML = dealsThisWeek;
   document.getElementById("dealsThisMonth").innerHTML = dealsThisMonth;
@@ -70,6 +67,80 @@ themeToggler .addEventListener("click", () => {
     themeToggler.querySelector("span:nth-child(2)").classList.toggle("active");
 })
 
+// pagination
 
+const searchInput = document.getElementById('searchInput');
+const entriesSelect = document.getElementById('entries');
+const dataTable = document.getElementById('dataTable');
+const currentPageElem = document.getElementById('currentPage');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+let currentPage = 1;
+let pageSize = parseInt(entriesSelect.value, 10);
+let filteredData = [...data];
+
+function updateTable() {
+  const startIndex = (currentPage - 1) * pageSize;
+  const endIndex = startIndex + pageSize;
+
+  const visibleData = filteredData.slice(startIndex, endIndex);
+
+  const tbody = dataTable.querySelector('tbody');
+  tbody.innerHTML = '';
+
+  visibleData.forEach(item => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+    <td>${item.email}</td>
+    <td>${item.Closer}</td>
+    <td>${item.DealsToday}</td>
+    <td>${item.DealsThisWeek}</td>
+    <td>${item.DealsThisMonth}</td>
+  `;  
+    tbody.appendChild(row);
+  });
+
+  currentPageElem.textContent = currentPage;
+  prevBtn.disabled = currentPage === 1;
+  nextBtn.disabled = endIndex >= filteredData.length;
+}
+
+function search() {
+  const searchTerm = searchInput.value.trim().toLowerCase();
+  filteredData = data.filter(item =>
+    item.Closer.toLowerCase().includes(searchTerm) ||
+    item.email.toLowerCase().includes(searchTerm)
+  );
+
+  currentPage = 1;
+  updateTable();
+}
+
+function changePageSize() {
+  pageSize = parseInt(entriesSelect.value, 10);
+  currentPage = 1;
+  updateTable();
+}
+
+function prevPage() {
+  if (currentPage > 1) {
+    currentPage--;
+    updateTable();
+  }
+}
+
+function nextPage() {
+  const totalPages = Math.ceil(filteredData.length / pageSize);
+  if (currentPage < totalPages) {
+    currentPage++;
+    updateTable();
+  }
+}
+
+searchInput.addEventListener('input', search);
+entriesSelect.addEventListener('change', changePageSize);
+
+updateTable();
 
 

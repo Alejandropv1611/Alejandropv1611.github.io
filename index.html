@@ -28,7 +28,7 @@
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">person_outline</span>
-                    <h3>Customers</h3>
+                    <h3>Closers</h3>
                 </a>
                 <a href="/Ranking-table.html">
                     <span class="material-icons-sharp">insights</span>
@@ -111,7 +111,16 @@
             </div>
             <div class="recent-orders">
                 <h2>Recent Orders</h2>
-                <table id="tablax">
+                <div class="controls">
+                    <input type="text" id="searchInput" placeholder="Search for closer...">
+                    <label for="entries">Show:</label>
+                    <select id="entries" onchange="changePageSize()">
+                      <option value="5">5</option>
+                      <option value="10">10</option>
+                      <option value="20">20</option>
+                    </select>
+                </div>
+                <table id="dataTable">
                     <thead>
                         <tr>
                             <th>Email</th>
@@ -121,21 +130,14 @@
                             <th>Monthly sales</th>
                         </tr>
                     </thead>
-                    <tbody id="data">
-                       
+                    <tbody id="data">                      
                     </tbody>
                 </table>
-                <script src="https://code.jquery.com/jquery-3.4.1.js"
-                integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
-            </script>
-            <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js">
-            </script>
-            <script>
-            $(document).ready(function () {
-                $('#tablax').DataTable({
-        });
-    });
-            </script>
+                <div class="pagination">
+                    <button id="prevBtn" onclick="prevPage()">Previous</button>
+                    <span id="currentPage">1</span>
+                    <button id="nextBtn" onclick="nextPage()">Next</button>
+                </div>
             </div>
         </main>
     </div>
