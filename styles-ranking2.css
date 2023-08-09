@@ -56,7 +56,65 @@ section::after{
 
 .box h3 {
     color: #fff;
-    
+    margin-bottom: 20px;
 }
 
+.box .list{
+    position: relative;
+    display: flex;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: 0.5s;
+    overflow: hidden;
+}
 
+.box .list:hover{
+    background: #fff;
+    box-shadow: -15px 30px rgba(0, 0, 0, 0.5);
+    transform: scale(1.15) translatex(30px) translateY(-15px);
+    z-index: 1000;
+}
+
+.box .list .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff
+}
+
+.box .list .content .rank {
+    position: absolute;
+    right: -50px;
+    color: #03a9f4;
+    transition: 0.5s;
+    font-size: 2em;
+}
+
+.box .list .content .rank small
+{
+    font-weight: 500;
+    opacity: 0.25;
+}
+
+.box .list:hover .content .rank{
+    right: 20px;
+}
+
+.box .list .content h4 {
+    line-height: 1.2em;
+    font-weight: 600;
+    transition: 0.5s;
+}
+
+.box .list .content p{
+    font-size: 0.75em;
+    transition: 0.5s;
+}
+
+.box .list:hover .content h4,
+.box .list:hover .content p {
+    color: #333;
+}
