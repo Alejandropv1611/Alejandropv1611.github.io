@@ -70,11 +70,12 @@ html {
 	font-weight: 600;
 	color: #ffffff;
 	cursor: pointer;
+	list-style: none;
 }
 
 .lboard_section .lboard_tabs ul li:hover,
 .lboard_section .lboard_tabs ul li.active{
-	color: #fff;
+	color: #80bd01;
 }
 
 .lboard_wrap{
@@ -82,7 +83,7 @@ html {
     display: flex;
     padding: 10px;
     background: rgba(0, 0, 0, 0.1);
-    border-radius: 10pxx;
+    border-radius: 10px;
     margin: 30px 0;
     cursor: pointer;
     transition: 0.5s;
@@ -107,10 +108,6 @@ html {
 .lboard_wrap .lboard_mem:last-child{
 	padding-bottom: 0;
 	border-bottom: 0;
-}
-
-.lboard_wrap .lboard_mem .img{
-	width: 50px;
 }
 
 .lboard_wrap .lboard_mem .name_bar{
