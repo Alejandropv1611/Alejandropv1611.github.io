@@ -1,20 +1,22 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Platinum Choice healthcare</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
 </head>
+
 <body>
     <div class="container">
         <aside>
             <div class="top">
                 <div class="logo">
-                    <img src="./Imagenes/LOGO SIN FONDO.png" > 
+                    <img src="./Imagenes/LOGO SIN FONDO.png">
                 </div>
                 <div class="close" id="close-btn">
                     <span class="material-icons-sharp">close</span>
@@ -35,7 +37,7 @@
                     <h3>Ranking</h3>
                 </a>
                 <a href="#">
-                    
+
                 </a>
             </div>
         </aside>
@@ -51,7 +53,7 @@
                         <span class="material-icons-sharp active">light_mode</span>
                         <span class="material-icons-sharp">dark_mode</span>
                     </div>
-                </div>          
+                </div>
             </div>
             <div class="insights">
                 <div class="sales">
@@ -113,38 +115,46 @@
                 <h2>Recent Orders</h2>
                 <div class="controls">
                     <input type="text" id="searchInput" placeholder="Search for closer...">
-                    <label for="entries">Show:</label>
-                    <select id="entries" onchange="changePageSize()">
-                      <option value="5">5</option>
-                      <option value="10">10</option>
-                      <option value="20">20</option>
+                    <label for="entriesPerPage">Show:</label>
+                    <select id="entriesPerPage">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
                     </select>
                 </div>
-                <table id="dataTable">
-                    <thead>
+                <div class="table-container">
+                    <table id="dataTable">
+                      <thead>
                         <tr>
-                            <th>Email</th>
-                            <th>Closer</th>
-                            <th>Daily sales</th>
-                            <th>Weekly sales</th>
-                            <th>Monthly sales</th>
+                          <th>Email</th>
+                          <th>Closer</th>
+                          <th>Daily sales</th>
+                          <th>Weekly sales</th>
+                          <th>Monthly sales</th>
                         </tr>
-                    </thead>
-                    <tbody id="data">                      
-                    </tbody>
-                </table>
-                <div class="pagination">
-                    <button id="prevBtn" onclick="prevPage()">Previous</button>
-                    <span id="currentPage">1</span>
-                    <button id="nextBtn" onclick="nextPage()">Next</button>
-                </div>
+                      </thead>
+                      <tbody id="tableBody">
+                        <!-- Datos se agregarán aquí mediante JavaScript -->
+                      </tbody>
+                    </table>
+                
+                    <div class="pagination">
+                      <button id="prevBtn" disabled>&lt; Anterior</button>
+                      <span id="currentPage">1</span>
+                      <button id="nextBtn">Siguiente &gt;</button>
+                    </div>
+                  </div>
+
             </div>
         </main>
     </div>
 
 
-    <script src="https://script.google.com/macros/s/AKfycbwsk78ky9oJrkAcssbyLWGrklxqwPi9oKUFcWHqW1d4KkXg2HEUpHIo0rSuUCDMBNHi/exec?action=getUsers"></script>
+    <script
+        src="https://script.google.com/macros/s/AKfycbwsk78ky9oJrkAcssbyLWGrklxqwPi9oKUFcWHqW1d4KkXg2HEUpHIo0rSuUCDMBNHi/exec?action=getUsers"></script>
 
     <script src="script.js"></script>
+    <script src="paginacion.js"></script>
 </body>
+
 </html>
