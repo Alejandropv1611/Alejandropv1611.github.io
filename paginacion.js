@@ -89,10 +89,9 @@ function fetchDataFromAPI(apiUrl) {
       globalData = jsonDataArray; // Almacenar en la variable global
       return jsonDataArray; // Devolver los datos para uso posterior si es necesario
     });
-}
+};
 
-const apiUrl =
-  "https://script.google.com/macros/s/AKfycbwsk78ky9oJrkAcssbyLWGrklxqwPi9oKUFcWHqW1d4KkXg2HEUpHIo0rSuUCDMBNHi/exec?action=getUsers"; // Reemplaza con la URL de tu API
+const apiUrl ="https://script.google.com/macros/s/AKfycbwsk78ky9oJrkAcssbyLWGrklxqwPi9oKUFcWHqW1d4KkXg2HEUpHIo0rSuUCDMBNHi/exec?action=getUsers";
 
 fetchDataFromAPI(apiUrl)
   .then((dataArray) => {

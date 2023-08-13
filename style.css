@@ -390,7 +390,7 @@ main .recent-orders a{
 }
 
 .pagination {
-    margin-top: 10px;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -549,7 +549,20 @@ main .recent-orders a{
 .right .sales-analytics .add-product div h3 {
     font-weight: 600;
 }
-
+.show{
+    margin-left: 20px;
+    margin-right: 10px;
+    font-weight: 700;
+}
+.showSelect{
+    padding: 5px;
+    border: 1px #dce1eb solid ;
+    text-align: center;
+}
+.buscador{
+    padding: 10px;
+    border-radius: 10px;
+}
 /* ======================= RESPONSIVE ===================== */
 
 @media screen and (max-width: 1200px) {
