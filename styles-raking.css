@@ -2,6 +2,32 @@
 
 @import url("https://fonts.googleapis.com/css?family=Poppins:200, 300,400,500,600,700,800,900&display=swap");
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Open+Sans:wght@300;400;700&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --color-primary: #80bd01;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f5;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
 
 *{
     margin: 0;
@@ -148,5 +174,28 @@ html {
 	border-top-right-radius: 0px;
 	border-bottom-right-radius: 0px;
 }
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	width: 50%;
+  }
+
+.pagination button {
+    padding: 5px 10px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-1);
+    cursor: pointer;
+	margin-left: 20px;
+	margin-right: 20px;
+  }
+
+  .indicePage{
+    color: #dce1eb !important;
+  }
 
 
