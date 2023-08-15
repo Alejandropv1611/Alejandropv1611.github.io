@@ -19,7 +19,7 @@ function updateTable() {
     const { email, closer, dealsToday, dealsThisWeek, dealsThisMonth } =
       filteredData[i];
     if (filteredData[i].closer != "") {
-      const row = `<tr><td>${email}</td><td>${closer}</td><td>${dealsToday}</td><td>${dealsThisWeek}</td><td>${dealsThisMonth}</td></tr>`;
+      const row = `<tr><td>${closer}</td><td>${dealsToday}</td><td>${dealsThisWeek}</td><td>${dealsThisMonth}</td></tr>`;
       tableBody.innerHTML += row;
     }
   }
@@ -33,8 +33,7 @@ function performSearch() {
   const searchText = searchInput.value.toLowerCase();
   filteredData = data.filter(
     (item) =>
-      item.Closer.toLowerCase().includes(searchText) ||
-      item.Email.toLowerCase().includes(searchText)
+      item.Closer.toLowerCase().includes(searchText)
   );
   console.log(filteredData)
   totalEntries = filteredData.length;
@@ -77,7 +76,6 @@ function fetchDataFromAPI(apiUrl) {
     .then((data) => {
       const jsonDataArray = data.map((item) => {
         return {
-          email: item.Email,
           closer: item.Closer,
           dealsToday: item.DealsToday,
           dealsThisWeek: item.DealsThisWeek,
