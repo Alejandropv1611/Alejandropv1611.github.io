@@ -253,6 +253,7 @@ main .insights > div {
 
 main .insights > div:hover {
     box-shadow: none;
+    cursor: pointer;
 }
 
 main .insights > div span {
