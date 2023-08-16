@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Platinum Choice healthcare</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Agents.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
 </head>
 
@@ -42,7 +42,7 @@
             </div>
         </aside>
         <main>
-            <h1>AGENTS</h1>
+            <h1>Agents</h1>
 
             <div class="right">
                 <div class="top">
@@ -52,6 +52,59 @@
                     <div class="theme-toggler">
                         <span class="material-icons-sharp active">light_mode</span>
                         <span class="material-icons-sharp">dark_mode</span>
+                    </div>
+                </div>
+            </div>
+            <div class="insights">
+                <div class="sales">
+                    <span class="material-icons-sharp">emoji_events</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Deals Today</h3>
+                            <h1 id="dealsToday"></h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="number">
+                                <p>81%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="expenses">
+                    <span class="material-icons-sharp">emoji_events</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Deals This week</h3>
+                            <h1 id="dealsThisWeek"></h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="number">
+                                <p>62%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="income">
+                    <span class="material-icons-sharp">emoji_events</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Deals This Month</h3>
+                            <h1 id="dealsThisMonth"></h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="number">
+                                <p>44%</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
