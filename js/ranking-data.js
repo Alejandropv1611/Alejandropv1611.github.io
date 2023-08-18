@@ -11,7 +11,6 @@ async function fetchData() {
       "https://script.google.com/macros/s/AKfycbwsk78ky9oJrkAcssbyLWGrklxqwPi9oKUFcWHqW1d4KkXg2HEUpHIo0rSuUCDMBNHi/exec?action=getUsers"
     );
     const data = await response.json();
-
     const datosAgregados = {};
     let contador = 1;
 
@@ -29,6 +28,7 @@ async function fetchData() {
       }
     });
     datosAgregadosArray = Object.values(datosAgregados);
+    datosAgregadosArray.sort((a, b) => b.puntajeTotal - a.puntajeTotal);
 
     showDataAndPagination();
 
