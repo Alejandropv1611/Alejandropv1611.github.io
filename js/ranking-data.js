@@ -12,17 +12,15 @@ async function fetchData() {
     );
     const data = await response.json();
     const datosAgregados = {};
-    let contador = 1;
+
 
     data.forEach((obj) => {
       if (!datosAgregados[obj.Closer] && obj.Closer && obj.Closer !== "N/A" && obj.DealsToday) {
         const puntajeTotal = parseNumericalValue(obj.DealsToday);
         datosAgregados[obj.Closer] = {
-          contador: contador,
           nombre: obj.Closer,
           puntajeTotal: puntajeTotal,
         };
-        contador++;
       } else if (datosAgregados[obj.Closer]) {
         datosAgregados[obj.Closer].puntajeTotal += parseNumericalValue(obj.DealsToday);
       }
@@ -46,12 +44,14 @@ function showDataAndPagination() {
   let htmlContent = "";
 
   for (let i = 0; i < paginatedData.length; i++) {
-    const { contador, nombre, puntajeTotal } = paginatedData[i];
+    const {  nombre, puntajeTotal } = paginatedData[i];
     const porcentaje = (puntajeTotal / MAX_PUNTAJE) * 100;
+    const sequentialNumber = startIndex + i + 1; // Calcula el número secuencial
+
     htmlContent += `
       <div class="lboard_mem">
         <div class="name_bar">
-          <p><span>${contador}</span> ${nombre}</p>
+          <p><span>${sequentialNumber}</span> ${nombre}</p>
           <div class="bar_wrap">
             <div class="inner_bar" style="width: ${porcentaje}%"></div>
           </div>

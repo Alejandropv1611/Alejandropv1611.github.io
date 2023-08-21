@@ -1,105 +1,118 @@
-const searchInput = document.getElementById("searchInput");
-const tableBody = document.getElementById("tableBody");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
-const currentPageElem = document.getElementById("currentPage");
+let itemsPerPage = 5; // Cantidad de elementos por página
+
 const entriesPerPageSelect = document.getElementById("entriesPerPage");
 
-let currentPage = 1;
-let entriesPerPage = parseInt(entriesPerPageSelect.value);
-let totalEntries = 0;
-let filteredData = [];
-
-function updateTable() {
-  tableBody.innerHTML = "";
-  const startIndex = (currentPage - 1) * entriesPerPage;
-  const endIndex = startIndex + entriesPerPage;
-
-  for (let i = startIndex; i < endIndex && i < filteredData.length; i++) {
-    const { email, closer, dealsToday, dealsThisWeek, dealsThisMonth } =
-      filteredData[i];
-    if (filteredData[i].closer != "") {
-      const row = `<tr><td>${closer}</td><td>${dealsToday}</td><td>${dealsThisWeek}</td><td>${dealsThisMonth}</td></tr>`;
-      tableBody.innerHTML += row;
-    }
-  }
-
-  currentPageElem.textContent = currentPage;
-  prevBtn.disabled = currentPage === 1;
-  nextBtn.disabled = endIndex >= totalEntries;
-}
-
-function performSearch() {
-  const searchText = searchInput.value.toLowerCase();
-  filteredData = data.filter(
-    (item) =>
-      item.Closer.toLowerCase().includes(searchText)
-  );
-  console.log(filteredData)
-  totalEntries = filteredData.length;
-  currentPage = 1;
-  updateTable();
-}
-
-function updateEntriesPerPage() {
-  entriesPerPage = parseInt(entriesPerPageSelect.value);
-  currentPage = 1;
-  updateTable();
-}
-
-searchInput.addEventListener("input", performSearch);
-prevBtn.addEventListener("click", () => {
-  if (currentPage > 1) {
-    currentPage--;
-    updateTable();
-  }
+entriesPerPageSelect.addEventListener("change", () => {
+  itemsPerPage = parseInt(entriesPerPageSelect.value);
+  currentPage = 1; // Resetear la página actual al cambiar la cantidad de elementos por página
+  showDataAndPagination();
 });
-nextBtn.addEventListener("click", () => {
-  if (currentPage * entriesPerPage < totalEntries) {
-    currentPage++;
-    updateTable();
-  }
-});
-entriesPerPageSelect.addEventListener("change", updateEntriesPerPage);
+let currentPage = 1; // Página actual
+let datosAgregadosArray = []; // Datos globales para todos los elementos
 
+async function fetchData() {
+  try {
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycbwsk78ky9oJrkAcssbyLWGrklxqwPi9oKUFcWHqW1d4KkXg2HEUpHIo0rSuUCDMBNHi/exec?action=getUsers"
+    );
+    const data = await response.json();
+    const datosAgregados = {};
 
-let globalData = []; // Variable global para almacenar los datos
-
-function fetchDataFromAPI(apiUrl) {
-  return fetch(apiUrl)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`Error en la solicitud: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      const jsonDataArray = data.map((item) => {
-        return {
-          closer: item.Closer,
-          dealsToday: item.DealsToday,
-          dealsThisWeek: item.DealsThisWeek,
-          dealsThisMonth: item.DealsThisMonth,
-          // Agrega más propiedades según la estructura de tus datos
+    data.forEach((obj) => {
+      if (
+        !datosAgregados[obj.Closer] &&
+        obj.Closer !== " " &&
+        obj.Closer !== "N/A" &&
+        obj.Closer !== ""
+      ) {
+        datosAgregados[obj.Closer] = {
+          nombre: obj.Closer,
+          month: obj.DealsThisMonth,
+          week: obj.DealsThisWeek,
+          today: obj.DealsToday,
         };
-      });
-
-      globalData = jsonDataArray; // Almacenar en la variable global
-      return jsonDataArray; // Devolver los datos para uso posterior si es necesario
+      }
     });
-};
+    datosAgregadosArray = Object.values(datosAgregados);
 
-const apiUrl ="https://script.google.com/macros/s/AKfycbwsk78ky9oJrkAcssbyLWGrklxqwPi9oKUFcWHqW1d4KkXg2HEUpHIo0rSuUCDMBNHi/exec?action=getUsers";
+    const searchInput = document.getElementById("searchInput");
 
-fetchDataFromAPI(apiUrl)
-  .then((dataArray) => {
-    filteredData = dataArray;
-    totalEntries = filteredData.length;
-    updateTable();
+    searchInput.addEventListener("input", () => {
+      const searchText = searchInput.value.trim().toLowerCase();
+
+      if (searchText === "") {
+        // Si el cuadro de búsqueda está vacío, mostrar todos los datos
+        datosAgregadosArray = Object.values(datosAgregados);
+      } else {
+        // Filtrar los datos por el nombre de búsqueda
+        datosAgregadosArray = Object.values(datosAgregados).filter((item) =>
+          item.nombre.toLowerCase().includes(searchText)
+        );
+      }
+
+      // Mostrar datos y paginación con los resultados filtrados
+      currentPage = 1; // Resetear a la primera página al realizar una búsqueda
+      showDataAndPagination();
+    });
 
     
 
-  })
-  .catch((error) => {
-    console.error("Ocurrió un error:", error);
-  });
+    showDataAndPagination();
+  } catch (error) {
+    console.error("Error al obtener los datos:", error);
+  }
+}
+
+function showDataAndPagination() {
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedData = datosAgregadosArray.slice(startIndex, endIndex);
+
+  //   const startIndex = (currentPage - 1) * itemsPerPage;
+  //   const endIndex = startIndex + itemsPerPage;
+  //   const paginatedData = datosAgregadosArray.slice(startIndex, endIndex);
+
+  const tableBody = document.getElementById("tableBody");
+  let htmlContent = "";
+
+  for (let i = 0; i < paginatedData.length; i++) {
+    const { nombre, month, week, today } = paginatedData[i];
+    htmlContent += `<tr><td>${nombre}</td><td>${today}</td><td>${week}</td><td>${month}</td></tr>`;
+  }
+
+  tableBody.innerHTML = htmlContent;
+  updatePagination();
+}
+
+function updatePagination() {
+  const totalPages = Math.ceil(datosAgregadosArray.length / itemsPerPage);
+
+  const paginationContainer = document.getElementById("pagination");
+  paginationContainer.innerHTML = `<div class="pagination">
+    <button onclick="goToPage(${currentPage - 1})" ${
+    currentPage === 1 ? "disabled" : ""
+  }>Previous</button>
+    <span class="indicePage">Page  ${currentPage} of ${totalPages}</span>
+    <button onclick="goToPage(${currentPage + 1})" ${
+    currentPage === totalPages ? "disabled" : ""
+  }>Next</button>
+    </div>`;
+}
+
+function parseNumericalValue(value) {
+  const parsedValue = parseFloat(value);
+  return isNaN(parsedValue) ? 0 : parsedValue;
+}
+
+function goToPage(page) {
+  currentPage = page;
+  showDataAndPagination();
+}
+
+const updateInterval = 5000; // Actualizar cada 1 segundo
+
+// Carga inicial de datos
+fetchData();
+
+// Configurar intervalo para actualizar automáticamente
+setInterval(fetchData, updateInterval);

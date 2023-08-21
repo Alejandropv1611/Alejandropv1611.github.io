@@ -26,6 +26,7 @@ const mostrarData = (data) => {
   document.getElementById("dealsToday").innerHTML = dealsToday;
   document.getElementById("dealsThisWeek").innerHTML = dealsThisWeek;
   document.getElementById("dealsThisMonth").innerHTML = dealsThisMonth;
+  
 
 };
  // Dark Mode

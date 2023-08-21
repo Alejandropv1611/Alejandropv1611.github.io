@@ -13,17 +13,14 @@ async function fetchDataMonth() {
     const data = await response.json();
 
     const datosAgregados = {};
-    let contador = 1;
 
     data.forEach((obj) => {
       if (!datosAgregados[obj.Closer] && obj.Closer && obj.Closer !== "N/A" && obj.DealsThisMonth) {
         const puntajeTotal = parseNumericalValueMo(obj.DealsThisMonth);
         datosAgregados[obj.Closer] = {
-          contador: contador,
           nombre: obj.Closer,
           puntajeTotal: puntajeTotal,
         };
-        contador++;
       } else if (datosAgregados[obj.Closer]) {
         datosAgregados[obj.Closer].puntajeTotal += parseNumericalValueMo(obj.DealsThisMonth);
       }
@@ -49,10 +46,11 @@ function showDataAndPaginationMo() {
   for (let i = 0; i < paginatedData.length; i++) {
     const { contador, nombre, puntajeTotal } = paginatedData[i];
     const porcentaje = (puntajeTotal / MAX_PUNTAJE_MO) * 100;
+    const sequentialNumber = startIndex + i + 1; // Calcula el número secuencial
     htmlContent += `
       <div class="lboard_mem">
         <div class="name_bar">
-          <p><span>${contador}</span> ${nombre}</p>
+          <p><span>${sequentialNumber}</span> ${nombre}</p>
           <div class="bar_wrap">
             <div class="inner_bar" style="width: ${porcentaje}%"></div>
           </div>
