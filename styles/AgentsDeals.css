@@ -265,16 +265,23 @@ main .insights > div span {
 }
 
 main .insights > div.expenses span {
-    background: var(--color-danger);
+    background: var(--color-primary);
 }
 main .insights > div.income span {
-    background: var(--color-success);
+    background: var(--color-primary);
 }
 main .insights > div .middle {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
+main .insights .rank h1{
+    position: relative;
+    color: var(--color-primary);
+    font-size: 40px;
+}
+
 main .insights h3{
     margin: 1rem 0 0.6rem;
     font-size: 1rem;
