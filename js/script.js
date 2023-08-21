@@ -51,13 +51,19 @@ const mostrarData = (data) => {
   document.getElementById('circlePercentageDaily').innerHTML=`<p>${percentageDealsToday}%</p>`
   document.getElementById('circlePercentageWeekly').innerHTML=`<p>${percentageDealsThisWeek}%</p>`
   document.getElementById('circlePercentageMonthly').innerHTML=`<p>${percentageDealsThisMonth}%</p>`
+  
+  let week=percentageDealsThisWeek+" 100";
+
+  const todayCircle=document.getElementById("todayCircle");
+  todayCircle.style.strokeDasharray=`${percentageDealsToday} 100`
+
+   const weeklyCircle=document.getElementById("weeklyCircle");
+   weeklyCircle.style.strokeDasharray=`${percentageDealsThisWeek} 100`
+
+   const monthlyCircle=document.getElementById("monthlyCircle");
+   monthlyCircle.style.strokeDasharray=`${percentageDealsThisMonth} 100`
 
 
-
-
-  console.log(percentageDealsToday)
-  console.log(percentageDealsThisWeek)
-  console.log(percentageDealsThisMonth)
   
 
 };
