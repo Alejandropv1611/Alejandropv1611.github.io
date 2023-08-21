@@ -8,7 +8,7 @@ fetch(url)
 const mostrarData = (data) => {
   let dealsToday = 0;
   let dealsThisWeek = 0;
-  let dealsThisMonth = "";
+  let dealsThisMonth = 0;
   const arraDealsToday= [];
   const arraDealsThisWeek= [];
   const arraDealsThisMonth= [];
@@ -23,9 +23,41 @@ const mostrarData = (data) => {
         dealsThisWeek=arraDealsThisWeek.reduce((acumulador, valorActual) => acumulador + valorActual, 0);
     }
   }
-  document.getElementById("dealsToday").innerHTML = dealsToday;
-  document.getElementById("dealsThisWeek").innerHTML = dealsThisWeek;
-  document.getElementById("dealsThisMonth").innerHTML = dealsThisMonth;
+  document.getElementById("dealsToday").innerHTML = `${dealsToday}/<spam style='font-size: 15px;'>4</spam>`;
+  document.getElementById("dealsThisWeek").innerHTML = `${dealsThisWeek}/<spam style='font-size: 15px;'>8</spam>`;
+  document.getElementById("dealsThisMonth").innerHTML = `${dealsThisMonth}/<spam style='font-size: 15px;'>32</spam>`;
+
+  //Porcentaje
+  const VAR_TODAY=4;
+  const VAR_MONTH=8;
+  const VAR_WEEK=32;
+
+  let percentageDealsThisWeek = 0;
+  let percentageDealsThisMonth= 0;
+  let percentageDealsToday=0;
+
+  if(dealsToday<=VAR_TODAY){
+    percentageDealsToday= Math.round((dealsToday / VAR_TODAY) * 100);
+  }else{percentageDealsToday=100}
+
+  if(dealsThisWeek<=VAR_WEEK){
+    percentageDealsThisWeek = Math.round((dealsThisWeek / VAR_WEEK) * 100);
+  }else{percentageDealsThisWeek=100}
+
+  if(dealsThisMonth<=VAR_MONTH){
+    percentageDealsThisMonth= Math.round((dealsThisMonth / VAR_MONTH) * 100);
+  }else{percentageDealsThisMonth=100}
+
+  document.getElementById('circlePercentageDaily').innerHTML=`<p>${percentageDealsToday}%</p>`
+  document.getElementById('circlePercentageWeekly').innerHTML=`<p>${percentageDealsThisWeek}%</p>`
+  document.getElementById('circlePercentageMonthly').innerHTML=`<p>${percentageDealsThisMonth}%</p>`
+
+
+
+
+  console.log(percentageDealsToday)
+  console.log(percentageDealsThisWeek)
+  console.log(percentageDealsThisMonth)
   
 
 };
