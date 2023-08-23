@@ -1,6 +1,6 @@
 
 /* ------{DealsToday}------*/
-const itemsPerPage = 5; // Cantidad de elementos por página
+const itemsPerPage = 10; // Cantidad de elementos por página
 let currentPage = 1; // Página actual
 let datosAgregadosArray = []; // Datos globales para todos los elementos
 const MAX_PUNTAJE = 10;

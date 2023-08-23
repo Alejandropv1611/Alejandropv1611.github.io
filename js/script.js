@@ -29,20 +29,18 @@ const mostrarData = (data) => {
 
   //Porcentaje
   const VAR_TODAY=4;
-  const VAR_MONTH=8;
-  const VAR_WEEK=32;
+  const VAR_MONTH=32;
+  const VAR_WEEK=8;
 
   let percentageDealsThisWeek = 0;
   let percentageDealsThisMonth= 0;
   let percentageDealsToday=0;
 
-  if(dealsToday<=VAR_TODAY){
-    percentageDealsToday= Math.round((dealsToday / VAR_TODAY) * 100);
-  }else{percentageDealsToday=100}
-
-  if(dealsThisWeek<=VAR_WEEK){
-    percentageDealsThisWeek = Math.round((dealsThisWeek / VAR_WEEK) * 100);
-  }else{percentageDealsThisWeek=100}
+  
+  percentageDealsToday= Math.round((dealsToday / VAR_TODAY) * 100);
+  
+  percentageDealsThisWeek = Math.round((dealsThisWeek / VAR_WEEK) * 100);
+  
 
   if(dealsThisMonth<=VAR_MONTH){
     percentageDealsThisMonth= Math.round((dealsThisMonth / VAR_MONTH) * 100);
