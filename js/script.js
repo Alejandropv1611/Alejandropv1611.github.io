@@ -23,11 +23,11 @@ const mostrarData = (data) => {
         dealsThisWeek=arraDealsThisWeek.reduce((acumulador, valorActual) => acumulador + valorActual, 0);
     }
   }
-  document.getElementById("dealsToday").innerHTML = `${dealsToday}/<spam style='font-size: 15px;'>4</spam>`;
-  document.getElementById("dealsThisWeek").innerHTML = `${dealsThisWeek}/<spam style='font-size: 15px;'>8</spam>`;
-  document.getElementById("dealsThisMonth").innerHTML = `${dealsThisMonth}/<spam style='font-size: 15px;'>32</spam>`;
+  document.getElementById("dealsToday").innerHTML = `${dealsToday}`;
+  document.getElementById("dealsThisWeek").innerHTML = `${dealsThisWeek}`;
+  document.getElementById("dealsThisMonth").innerHTML = `${dealsThisMonth}`;
 
-  //Porcentaje
+  /* Porcentaje
   const VAR_TODAY=4;
   const VAR_MONTH=32;
   const VAR_WEEK=8;
@@ -61,13 +61,13 @@ const mostrarData = (data) => {
    const monthlyCircle=document.getElementById("monthlyCircle");
    monthlyCircle.style.strokeDasharray=`${percentageDealsThisMonth} 100`
 
-
+  */
   
 
 };
  // Dark Mode
 
- const sideMenu = document.querySelector("aside");
+const sideMenu = document.querySelector("aside");
 const menuBtn = document.querySelector("#menu-btn");
 const closeBtn = document.querySelector("#close-btn");
 const themeToggler = document.querySelector (".theme-toggler");
