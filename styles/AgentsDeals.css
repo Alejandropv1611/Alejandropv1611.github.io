@@ -242,6 +242,18 @@ main .insights{
     gap: 1.8rem;
 }
 
+.controls {
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.buscador{
+    padding: 10px;
+    border-radius: 10px;
+}
+
 main .insights > div {
     background: var(--color-white);
     padding: var(--card-padding);

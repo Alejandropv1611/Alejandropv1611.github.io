@@ -57,29 +57,22 @@
             </div>
             <div class="insights">
                 <div class="sales">
-                    <span class="material-icons-sharp">analytics</span>
                     <div class="middle">
                         <div class="left">
                             <h3>Total daily sales</h3>
                             <h1 id="dealsToday"></h1>
                         </div>
-                        <div class="progress">
-                            <svg>
-                                <circle id="todayCircle" cx="40%" cy="45%" r="35" pathlength="100"></circle>
-                            </svg>
-                            <div class="number" id="circlePercentageDaily">
-                                
-                            </div>
-                        </div>
+                        <span class="material-icons-sharp">analytics</span>
                     </div>
                 </div>
                 <div class="expenses">
-                    <span class="material-icons-sharp">bar_chart</span>
                     <div class="middle">
                         <div class="left">
                             <h3>Total weekly sales</h3>
                             <h1 id="dealsThisWeek"></h1>
                         </div>
+                        <span class="material-icons-sharp">bar_chart</span>
+                        <!--
                         <div class="progress">
                             <svg>
                                 <circle id="weeklyCircle"  cx="40%" cy="45%" r="35" pathlength="100"></circle>
@@ -88,37 +81,21 @@
                                 
                             </div>
                         </div>
+                        -->
                     </div>
                 </div>
                 <div class="income">
-                    <span class="material-icons-sharp">stacked_line_chart</span>
                     <div class="middle">
                         <div class="left">
                             <h3>Total monthly sales</h3>
                             <h1 id="dealsThisMonth"></h1>
                         </div>
-                        <div class="progress">
-                            <svg>
-                                <circle id="monthlyCircle"  cx="40%" cy="45%" r="35" pathlength="100"></circle>
-                            </svg>
-                            <div class="number" id="circlePercentageMonthly">
-                                
-                            </div>
-                        </div>
+                        <span class="material-icons-sharp">stacked_line_chart</span>
                     </div>
                 </div>
             </div>
             <div class="recent-orders">
                 <h2>Recent Orders</h2>
-                <div class="controls">
-                    <input type="text" id="searchInput" class="buscador" placeholder="Search for Agents...">
-                    <label for="entriesPerPage" class="show">Show:</label>
-                    <select id="entriesPerPage" class="showSelect">
-                        <option value="5">5</option>
-                        <option value="10">10</option>
-                        <option value="20">20</option>
-                    </select>
-                </div>
                 <div class="table-container">
                     <table id="dataTable">
                       <thead>
@@ -133,10 +110,7 @@
                         <!-- Datos se agregarán aquí mediante JavaScript -->
                       </tbody>
                     </table>
-                
-                    <div id="pagination" >
-                    </div>
-                  </div>
+                </div>
             </div>
         </main>
     </div>
@@ -145,9 +119,7 @@
     <script
         src="https://script.google.com/macros/s/AKfycbwsk78ky9oJrkAcssbyLWGrklxqwPi9oKUFcWHqW1d4KkXg2HEUpHIo0rSuUCDMBNHi/exec?action=getUsers"></script>
 
-    <script src="js/script.js"></script>
-    <script src="js/paginacion.js"></script>
-    
+    <script src="js/script.js"></script>   
 </body>
 
 </html>

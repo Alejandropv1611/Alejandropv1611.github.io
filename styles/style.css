@@ -274,7 +274,7 @@ main .insights > div span {
     padding: 0.5rem;
     border-radius: 50%;
     color: var(--color-white);
-    font-size: 2rem;
+    font-size: 5rem;
 }
 
 main .insights > div.expenses span {
@@ -302,7 +302,7 @@ main .insights .progress {
 
 main .insights svg{
     width: 7rem;
-    height: 6.2rem;
+    height: 6.8rem;
 }
 main .insights svg circle {
     fill: none;
