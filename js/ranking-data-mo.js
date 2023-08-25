@@ -1,6 +1,6 @@
 
 /* ------{DealsThisMonth}------*/
-const itemsPerPageMo = 5; // Cantidad de elementos por página
+const itemsPerPageMo = 100; // Cantidad de elementos por página
 let currentPageMo  = 1; // Página actual
 let datosAgregadosArrayMo  = []; // Datos globales para todos los elementos
 const MAX_PUNTAJE_MO = 10;
@@ -63,7 +63,7 @@ function showDataAndPaginationMo() {
   }
 
   tableBody.innerHTML = htmlContent;
-  updatePaginationMo();
+  // updatePaginationMo();
 }
 
 function updatePaginationMo() {

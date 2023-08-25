@@ -1,6 +1,6 @@
 
 /* ------{DealsThisWeek}------*/
-const itemsPerPageWe = 5; // Cantidad de elementos por página
+const itemsPerPageWe = 100; // Cantidad de elementos por página
 let currentPageWe  = 1; // Página actual
 let datosAgregadosArrayWe  = []; // Datos globales para todos los elementos
 const MAX_PUNTAJE_WE = 10;
@@ -63,7 +63,7 @@ function showDataAndPaginationWe() {
   }
 
   tableBody.innerHTML = htmlContent;
-  updatePaginationWe();
+  // updatePaginationWe();
 }
 
 function updatePaginationWe() {

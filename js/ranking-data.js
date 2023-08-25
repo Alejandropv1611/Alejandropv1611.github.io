@@ -64,7 +64,7 @@ function showDataAndPagination() {
   }
 
   tableBody.innerHTML = htmlContent;
-  updatePagination();
+  // updatePagination();
 }
 
 function updatePagination() {
