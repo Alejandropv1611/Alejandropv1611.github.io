@@ -13,7 +13,8 @@ async function fetchData() {
           !datosAgregados[obj.Closer] &&
           obj.Closer !== " " &&
           obj.Closer !== "N/A" &&
-          obj.Closer !== ""
+          obj.Closer !== "" &&
+          obj.DealsToday !== ""
         ) {
           datosAgregados[obj.Closer] = {
             nombre: obj.Closer,

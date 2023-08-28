@@ -390,6 +390,24 @@ main .insights small {
     border-radius: var(--border-radius-1);
 }
 
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.pagination button {
+    padding: 5px 10px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-1);
+    cursor: pointer;
+	margin-left: 20px;
+	margin-right: 20px;
+  }
+
 
 /* ======================= RESPONSIVE ===================== */
 

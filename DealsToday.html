@@ -60,17 +60,17 @@
                 <input type="text" id="searchInput" class="buscador" placeholder="Search for Agents...">
             </div>
             
-            <div class="insights">
+            <div class="insights" id="dataAgentToday">
                 <div class="sales">
                     <a href="#"></a>
                     <span class="material-icons-sharp">person_4</span>
                     <div class="middle">
                         <div class="rank">
-                            <h1># 1</h1>
+                            <h1 id="contadorTag"># 0</h1>
                         </div>
                         <div>
                             <h3>Agent</h3>
-                            <h1>Luis Pottozen</h1>
+                            <h1></h1>
                         </div>
                         <div>
                             <h3>Deals Today</h3>
@@ -78,81 +78,25 @@
                         </div> 
                         <div>
                             <h3>Predictive Score</h3>
-                            <h1>5</h1>
+                            <h1></h1>
                         </div>   
                         <div class="progress">
                             <svg>
                                 <circle cx="38" cy="38" r="36"></circle>
                             </svg>
                             <div class="number">
-                                <p>81%</p>
+                                <p>0%</p>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="expenses">
-                    <a href="#"></a>
-                    <span class="material-icons-sharp">person_4</span>
-                    <div class="middle">
-                        <div class="rank">
-                            <h1># 2</h1>
-                        </div>
-                        <div>
-                            <h3>Agent</h3>
-                            <h1>Camilo Garcia</h1>
-                        </div>
-                        <div>
-                            <h3>Deals Today</h3>
-                            <h1 id="dealsToday"></h1>
-                        </div> 
-                        <div>
-                            <h3>Predictive Score</h3>
-                            <h1>3</h1>
-                        </div>   
-                        <div class="progress">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="number">
-                                <p>65%</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="income">
-                    <a href="#"></a>
-                    <span class="material-icons-sharp">person_4</span>
-                    <div class="middle">
-                        <div class="rank">
-                            <h1># 3</h1>
-                        </div>
-                        <div>
-                            <h3>Agent</h3>
-                            <h1>Luis Antony</h1>
-                        </div>
-                        <div>
-                            <h3>Deals Today</h3>
-                            <h1 id="dealsToday"></h1>
-                        </div> 
-                        <div>
-                            <h3>Predictive Score</h3>
-                            <h1>2</h1>
-                        </div>   
-                        <div class="progress">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="number">
-                                <p>50%</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div>     
             </div>
+            <div id="pagination"></div>
         </main>
     </div>        
 
-<script src="js/script.js"></script>
+<!-- <script src="js/script.js"></script> -->
+<script src="js/agentToday.js"></script>
 
 </body>
 

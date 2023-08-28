@@ -8,10 +8,10 @@
     --color-white: #fff;
     --color-info-dark: #7d8da1;
     --color-info-light: #dce1eb;
-    --color-dark: #363949;
+    --color-dark: #111214;
     --color-light: rgba(132, 139, 200, 0.18);
     --color-primary-variant: #111e88;
-    --color-dark-variant: #677483;
+    --color-dark-variant: #42464b;
     --color-background: #f6f6f5;
 
     --card-border-radius: 2rem;
@@ -377,6 +377,7 @@ main table tbody td {
     height: 2.8rem;
     border-bottom: 1px solid var(--color-light);
     color: var(--color-dark-variant);
+    font-size:15px;
 }
 
 main table tbody tr:last-child td {
