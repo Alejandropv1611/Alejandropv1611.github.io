@@ -261,14 +261,14 @@ main .insights > div span {
     padding: 0.5rem;
     border-radius: 50%;
     color: var(--color-white);
-    font-size: 2rem;
+    font-size: 4.5rem;
 }
 
 main .insights > div.expenses span {
-    background: var(--color-danger);
+    background: var(--color-primary);
 }
 main .insights > div.income span {
-    background: var(--color-success);
+    background: var(--color-primary);
 }
 main .insights > div .middle {
     display: flex;
@@ -277,7 +277,7 @@ main .insights > div .middle {
 }
 main .insights h3{
     margin: 1rem 0 0.6rem;
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 
 main .insights .progress {

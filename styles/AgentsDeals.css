@@ -304,6 +304,7 @@ main .insights .progress {
     width: 92px;
     height: 92px;
     border-radius: 50%;
+    border-color: #bd5201;
 }
 
 main .insights svg{
