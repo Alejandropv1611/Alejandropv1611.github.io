@@ -4,6 +4,7 @@ let datosFiltradosArray = []; // Almacenar los resultados filtrados
 
 const MAX_PUNTAJE = 32;
 const VAR_TODAY=4;
+let contadorSecuencial = 0;
 
 async function fetchData() {
   try {
@@ -18,7 +19,7 @@ async function fetchData() {
         !datosAgregados[obj.Closer] &&
         obj.Closer &&
         obj.Closer !== "N/A" &&
-        obj.DealsThisMonth
+        obj.DealsThisMonth !==""
       ) {
         const puntajeTotal = parseNumericalValueMo(obj.DealsThisMonth);
         datosAgregados[obj.Closer] = {
@@ -34,6 +35,10 @@ async function fetchData() {
     datosAgregadosArray = Object.values(datosAgregados);
     datosAgregadosArray.sort((a, b) => b.puntajeTotal - a.puntajeTotal);
 
+// Assign ranks based on the sorted order
+    datosAgregadosArray.forEach((item, index) => {
+      item.rank = index + 1;
+    });
     showData();
   } catch (error) {
     console.error("Error al obtener los datos:", error);
@@ -48,7 +53,7 @@ function showData() {
     datosFiltradosArray.length > 0 ? datosFiltradosArray : datosAgregadosArray;
 
   for (let i = 0; i < displayData.length; i++) {
-    const { nombre, puntajeTotal } = displayData[i];
+    const { nombre, puntajeTotal, rank  } = displayData[i];
     const porcentaje = (puntajeTotal / MAX_PUNTAJE) * 100;
     const angle = (porcentaje / 100) * 360;
     const dashOffset = 360 - angle;
@@ -59,7 +64,7 @@ function showData() {
       <span class="material-icons-sharp">person_4</span>
       <div class="middle">
           <div class="rank">
-              <h1 id="contadorTag">#${i + 1}</h1>
+              <h1 id="contadorTag">#${rank}</h1>
           </div>
           <div>
               <h3>Agent</h3>
@@ -106,6 +111,8 @@ function performSearch() {
     item.nombre.toLowerCase().includes(searchTerm)
   );
 
+// Sort the filtered data by puntajeTotal
+  datosFiltradosArray.sort((a, b) => b.puntajeTotal - a.puntajeTotal);
   showData();
 }
 
