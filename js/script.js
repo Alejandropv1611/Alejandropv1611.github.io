@@ -13,6 +13,9 @@ const mostrarData = (data) => {
   const arraDealsThisWeek= [];
   const arraDealsThisMonth= [];
   for (let i = 0; i < data.length; i++) {
+    if (data[i].Closer === "Fronters") {
+      break; // Detener el bucle cuando se encuentre "Fronters"
+    }
     if (data[i].Closer != "") {
 
         arraDealsThisMonth[i]=data[i].DealsThisMonth;
@@ -27,41 +30,7 @@ const mostrarData = (data) => {
   document.getElementById("dealsThisWeek").innerHTML = `${dealsThisWeek}`;
   document.getElementById("dealsThisMonth").innerHTML = `${dealsThisMonth}`;
 
-  /* Porcentaje
-  const VAR_TODAY=4;
-  const VAR_MONTH=32;
-  const VAR_WEEK=8;
 
-  let percentageDealsThisWeek = 0;
-  let percentageDealsThisMonth= 0;
-  let percentageDealsToday=0;
-
-  
-  percentageDealsToday= Math.round((dealsToday / VAR_TODAY) * 100);
-  
-  percentageDealsThisWeek = Math.round((dealsThisWeek / VAR_WEEK) * 100);
-  
-
-  if(dealsThisMonth<=VAR_MONTH){
-    percentageDealsThisMonth= Math.round((dealsThisMonth / VAR_MONTH) * 100);
-  }else{percentageDealsThisMonth=100}
-
-  document.getElementById('circlePercentageDaily').innerHTML=`<p>${percentageDealsToday}%</p>`
-  document.getElementById('circlePercentageWeekly').innerHTML=`<p>${percentageDealsThisWeek}%</p>`
-  document.getElementById('circlePercentageMonthly').innerHTML=`<p>${percentageDealsThisMonth}%</p>`
-  
-  let week=percentageDealsThisWeek+" 100";
-
-  const todayCircle=document.getElementById("todayCircle");
-  todayCircle.style.strokeDasharray=`${percentageDealsToday} 100`
-
-   const weeklyCircle=document.getElementById("weeklyCircle");
-   weeklyCircle.style.strokeDasharray=`${percentageDealsThisWeek} 100`
-
-   const monthlyCircle=document.getElementById("monthlyCircle");
-   monthlyCircle.style.strokeDasharray=`${percentageDealsThisMonth} 100`
-
-  */
   
 
 };
