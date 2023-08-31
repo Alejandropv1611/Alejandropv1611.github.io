@@ -9,7 +9,7 @@ let contadorSecuencial = 0;
 async function fetchData() {
   try {
     const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbwsk78ky9oJrkAcssbyLWGrklxqwPi9oKUFcWHqW1d4KkXg2HEUpHIo0rSuUCDMBNHi/exec?action=getUsers"
+      "https://script.google.com/macros/s/AKfycbykBkE8SQIZy3Ck_M-0env7LAtPt7wgqJ7w7qkCUYG69VEJEOJSSD6iy_e_ryd6args/exec?action=getUsers"
     );
     const data = await response.json();
     const datosAgregados = {};
